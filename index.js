@@ -20,7 +20,7 @@ connection.once('open', function () {
 
 app.use('/', router)
 
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
   console.log('Server is running on Port: ' + port)
 })
 
