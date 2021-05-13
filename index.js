@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 app.use(cors())
-const cards = require('./model')
+const cards = require('./cards-model')
 const router = express.Router()
 const port = 4000
 
