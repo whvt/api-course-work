@@ -5,10 +5,10 @@ const Schema = mongoose.Schema
 let test = new Schema(
   {
     question: String,
-    c_answer: String,
-    w_answer: String,
+    answers: [String],
+    c_answer: Number,
   },
   { collection: 'Tests' }
 )
 
-module.exports = mongoose.model('tests', test)
+module.exports = mongoose.model('Tests', test)
