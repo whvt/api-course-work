@@ -25,7 +25,7 @@ app.listen(process.env.PORT || port, function () {
 })
 
 //take items from the collection
-router.get('/fetchdata', async function (req, res) {
+router.get('/cards', async function (req, res) {
   const Cards = await cards.find({})
   res.json({ cards: Cards })
 })
