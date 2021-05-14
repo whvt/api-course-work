@@ -47,3 +47,13 @@ router.post('/create-test', async function (req, res) {
   await test.save()
   res.status(200).send('ok')
 })
+
+router.post('/create-card', async (req, res) => {
+  const { question, answer } = req.body
+
+  const newCard = new Card({ question, answer })
+
+  await newCard.save()
+
+  res.status(200).send('card created')
+})
