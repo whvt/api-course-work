@@ -4,7 +4,8 @@ const app = express()
 const cors = require('cors')
 app.use(cors())
 const Card = require('./cards-model')
-const Test = require('./tests-model')
+const Test1 = require('./tests-model')
+const Test2 = require('./test2-model')
 const router = express.Router()
 const port = 4000
 
@@ -25,6 +26,16 @@ app.listen(process.env.PORT || port, function () {
   console.log('Server is running on Port: ' + port)
 })
 
+router.get('/test1', async function (req, res) {
+  const test1 = await Test1.find()
+  res.json({ test1 })
+})
+
+router.get('/test2', async function (req, res) {
+  const test2 = await Test2.find()
+  res.json({ test2 })
+})
+
 //take cards from the collection
 router.get('/cards', async function (req, res) {
   const cards = await Card.find()
@@ -32,10 +43,7 @@ router.get('/cards', async function (req, res) {
 })
 
 //take tests from the collection
-router.get('/tests', async function (req, res) {
-  const tests = await Test.find()
-  res.json({ tests })
-})
+
 router.post('/create-test', async function (req, res) {
   const { question, answers, c_answer } = req.body
   const test = new Test({
