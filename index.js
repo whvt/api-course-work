@@ -6,6 +6,7 @@ app.use(cors())
 const Card = require('./cards-model')
 const Test1 = require('./tests-model')
 const Test2 = require('./test2-model')
+const Test3 = require('./test3-model')
 const router = express.Router()
 const port = 4000
 
@@ -34,6 +35,11 @@ router.get('/test1', async function (req, res) {
 router.get('/test2', async function (req, res) {
   const test2 = await Test2.find()
   res.json({ test2 })
+})
+
+router.get('/test3', async function (req, res) {
+  const test3 = await Test3.find()
+  res.json({ test3 })
 })
 
 //take cards from the collection
